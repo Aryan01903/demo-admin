@@ -15,11 +15,12 @@ import {
 } from "lucide-react";
 
 const navItems = [
-  { label: "Dashboard", icon: LayoutDashboard, active: true },
-  { label: "Users", icon: Users, active: false },
-  { label: "Projects", icon: FolderKanban, active: false },
-  { label: "Tasks", icon: CheckSquare, active: false },
-  { label: "Settings", icon: Settings, active: false },
+  { label: "Dashboard", icon: LayoutDashboard, active: true, href: "/dashboard" },
+  { label: "Users", icon: Users, active: false, href: "/users" },
+  { label: "Projects", icon: FolderKanban, active: false, href: "/projects" },
+  { label: "Revenue", icon: DollarSign, active: false, href: "/revenue" },
+  { label: "Tasks", icon: CheckSquare, active: false, href: "/tasks" },
+  { label: "Settings", icon: Settings, active: false, href: "/settings" },
 ];
 
 const stats = [
@@ -70,10 +71,10 @@ export default function AdminPage() {
         </div>
 
         <nav className="flex flex-col gap-1 p-3">
-          {navItems.map(({ label, icon: Icon, active }) => (
+          {navItems.map(({ label, icon: Icon, active, href }) => (
             <a
               key={label}
-              href="#"
+              href={href}
               className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
                 active
                   ? "bg-slate-900 text-white"
@@ -88,7 +89,7 @@ export default function AdminPage() {
 
         <div className="absolute bottom-0 w-full border-t border-slate-200 p-3">
           <a
-            href="#"
+            href="/"
             className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100"
           >
             <LogOut className="h-4 w-4" />
